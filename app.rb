@@ -29,7 +29,6 @@ class SillyCatz < Sinatra::Base
     end
     
     get '/dnd-grade' do
-        
         @result = params[:correctness].split(',')
         @result.collect! { |each|
             each = each.split(':')
@@ -47,6 +46,18 @@ class SillyCatz < Sinatra::Base
             @gif = "//giphy.com/embed/5ZQCTwHXBO2Aw"
         end
         erb :graded        
+    end
+
+    get '/cssGame' do
+        erb :cssGame
+    end
+
+    get '/jsGame' do
+        erb :jsGame
+    end
+
+    get '/htmlGame' do
+        erb :htmlGame
     end
 end 
 

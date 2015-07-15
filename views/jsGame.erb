@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,10 +166,9 @@ First we set the fill style of the context, which takes the form of a CSS colour
             <style type='text/css' media='screen'>
                 #editor {
                     position: absolute;
-                    top: 200px;
-                    right: 0;
-                    bottom: 0;
-                    left: 50%;
+                    width: 45%;
+                    height: 70%;
+                    bottom: 15px;
                 }
             </style>
             <div id='editor'>function foo(items) {
@@ -182,9 +179,14 @@ First we set the fill style of the context, which takes the form of a CSS colour
             <script>
                 var editor = ace.edit("editor");
                 editor.setTheme('ace/theme/monokai');
-                editor.getSession().setMode('ace/mode/python');
+                editor.getSession().setMode('ace/mode/javascript');
             </script>
-            
+            <button id='evaluateBut' onClick='evaluate()'>Evaluate</button>
+            <script>
+                function evaluate() {
+                    window.alert(editor.getSession().getValue());
+                }
+            </script>
         </div>
     </div>
 
