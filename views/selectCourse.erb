@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Home</title>
+    <link href="/reset.css" rel="stylesheet">
+    <link href="/picHoverEffect.css" rel="stylesheet">
+    <link href="/nav-bar.css" rel="stylesheet">    
+<script src="jquery.min.js"></script>
+<script src="modernizr.js"></script>
+<script>
+    $(document).ready(function(){
+            // handle the mouseenter functionality
+            $(".img").mouseenter(function(){
+                $(this).addClass("hover");
+            })
+            // handle the mouseleave functionality
+            .mouseleave(function(){
+                $(this).removeClass("hover");
+            });
+    });
+</script>
+<style>
+    .space-holder {
+        width: 100%;
+        height: 30px;
+    }
+</style>
+</head>
+
+
+<body>
+    <div> 
+    <h3  class='nav-bar'>
+        <ul id='menu'>
+            <li><a href="/">LifeIsTech!</a></li>
+            <li>
+                <a href="#">About&#x25BC;</a>
+                <ul class='hidden'>
+                    <li><a href="#">Who we are</a></li>
+                    <li><a href="#">What we do</a></li>
+                </ul>
+            </li>
+            <li><a href='#'>Home</a></li>
+            <li>
+                <a href="#">Sign in</a>
+            </li>
+            <li>
+                <a href="#">More Jazzes To Come</a>
+            </li>
+        </ul>
+    </h3>
+    <h3  class='hor-line'></h3>
+    </div>
+    <h3  class='space-holder'></h3>
+    <h1 class='title'>Course Selection</h1>
+    <br>
+    <form action='/webDesign' name="webD"method='get'></form>
+    <form action='/webProgramming' name="webP" method='get'></form>
+    <div id="effect-1" class="effects clearfix">
+        <div class="img">
+            <img src="img/coursejpg/_1.gif" name='webDesign' alt="">
+            <div class="overlay">
+                <a href="#" onclick="document.forms['webD'].submit();"class="expand">+</a>
+                <!-- <a class="close-overlay hidden">x</a> -->
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/3.jpg" alt="">
+            <div class="overlay">
+                <a href="#" class="expand">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/_2.gif" alt="">
+            <div class="overlay">
+                <a href="#" class="expand" onclick="document.forms['webP'].submit();">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/4.jpg" alt="">
+            <div class="overlay">
+                <a href="#" class="expand">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+    </div>
+    <h3 class='space-holder'></h3>
+    <div id="effect-1" class="effects clearfix">
+        <div class="img">
+            <img src="img/coursejpg/3.jpg" name='webDesign' alt="">
+            <div class="overlay">
+                <a href="#" onclick="document.forms['webD'].submit();"class="expand">+</a>
+                <!-- <a class="close-overlay hidden">x</a> -->
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/1.jpg" alt="">
+            <div class="overlay">
+                <a href="#" class="expand">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/4.jpg" alt="">
+            <div class="overlay">
+                <a href="#" class="expand" onclick="document.forms['webP'].submit();">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/coursejpg/2.jpg" alt="">
+            <div class="overlay">
+                <a href="#" class="expand">+</a>
+                <a class="close-overlay hidden">x</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

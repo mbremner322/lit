@@ -1,0 +1,79 @@
+/* Layout *
+ */
+.body {
+    background-image: url("polka.png");
+}
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+}
+.guidetext{
+    color: white;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 150%;
+}
+/* Demo One */
+#dd-images {
+	/*border: 2px dashed #D9D9D9;*/
+	border-radius: 10px;
+	padding: 1em 1em;
+	text-align: center;
+    width: 100%;
+    height:150px;
+    background-color: #32F0DD;
+}
+#drop-target-one,#drop-target-two,#drop-target-three,#drop-target-four,
+#drop-target-1, #drop-target-2, #drop-target-3, #drop-target-4,#answer-pic-1,
+#answer-pic-2,#answer-pic-3,#answer-pic-4,
+#question-pic-4,#question-pic-3,#question-pic-2,#question-pic-1{
+    border-radius: 10px;
+    /*border: 2px dashed #D9D9D9;*/
+    width:100%;
+    height:150px;
+    background-color:#FFFFFF;
+}
+
+
+.over {
+	background: #F7F7F7;
+}
+
+#drag-elements {
+	list-style: none;
+	padding: 0;
+	/*margin: 0 0 1em;*/
+}
+
+#drag-elements li {
+	/*display: inline-block;
+	padding: 0.5em 1em;
+	margin: 0 1em 1em 0;
+	border: 1px solid #D9D9D9;
+	background: #F7F7F7;
+	border-radius: 3px;*/
+}
+#dd-elements {
+    background: #0408cc;
+    border-radius: 20px;
+}
+
+/* Clearfix Utils */
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: ""; }
+
+.clearfix:after {
+  clear: both; }
+

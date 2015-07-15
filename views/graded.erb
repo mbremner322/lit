@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Sample Glossary</title>
+  <meta name="description" content="Some slide and push menu demos using CSS3 transitions.">
+  <link rel="stylesheet" href="/font-awesome.css">
+  <link rel="stylesheet" href="/slide-style.css">
+  <link rel="stylesheet" href="/editor-style.css">
+  <link rel="stylesheet" href="/questions-style.css">
+  <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+<!--  <link rel="stylesheet" href="nav-bar.css"> -->
+  <script type="text/javascript" src='google-code-prettify/prettify.js'></script>
+  <script src="http://thecodeplayer.com/uploads/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="/pop.js"></script>
+  
+  <style>
+    pre.prettyprint{
+        width: auto;
+        overflow-x:scroll;
+        overflow-y:hidden;
+        line-height: 1.6em;
+        font-size:12px;
+        white-space:pre;
+        display: block;
+        word-wrap: normal;
+        padding: 8px;
+        overflow: auto;
+        max-height: 600px;
+   }
+  </style>
+</head>
+<body onload="prettyPrint()">
+<div id="o-wrapper" class="o-wrapper">
+  <header class="o-header">
+    <nav class="o-header-nav">
+      <div class="c-buttons">
+        <a href='/'><button id='c-button--home' class='c-button' class='nav-but'>Home</button></a>
+        <button class="c-hamburger c-hamburger--htx" style="float:left">
+           <span></span>
+        </button>
+        <button id="c-button--slide-left" class="c-button" class='nav-but'>Glossary</button>
+        <button id="c-button--slide-left2" class="c-button" class='nav-but'>Q&#38;A</button>
+        <button id="c-button--slide-right" class="c-button" class='nav-but'>TryItEditor</button>  
+      </div>
+    </nav>
+    <div class="o-container">
+      <h1 class="o-header__title">contents contents....</h1>
+    </div>
+  </header><!-- /o-header -->
+    <main class='o-content'>
+    <div class='o-container'>
+        
+        <%=@numCorrect%> out of <%=@numOfQ%> 
+        
+    </div><!-- /o-container -->
+  </main><!-- /o-content -->
+</div><!-- /o-wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- html/css tryit editor-->
+<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+    <button class="c-menu__close">&rarr; Close Menu</button>
+    <div id='editor'>
+        <h1 class="title">Try It Editor!</h1>
+        <div id='input'>
+            <h2>Write in your code!</h2>
+             <textarea class="code" id="html" placeholder="write in me! :)"></textarea>
+        </div>
+        <div id="output">
+            <h2>Here's your output!</h2>
+            <iframe id="preview" src="javascript:;"></iframe>
+        </div>
+    </div>
+</nav>
+
+<!-- js for editor secion above-->
+<script>
+      $(document).ready(function(){
+        var p=$("#preview").contents().find('body');
+        p.css('margin', '2px');
+        p.html('<span id="subinsbdotcomhtmlpr"></span><style id="subinsbdotcomcsspr"></style>');
+        $('#html').on('keyup', function(){
+            p.find('#subinsbdotcomhtmlpr').html($(this).val());
+        });
+      });
+      $(document).ready(function(){
+        $("textarea").keydown(function(e){
+            if(e.keyCode === 9) {
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                var $this = $(this);
+                var value = $this.val();
+                //set textarea val to: text B4 caret + tab text after caret
+                $this.val(value.substring(0, start) + "\t" + value.substring(end));
+                this.selectionStart = this.selectionEnd = start + 1;
+                e.preventDefault();
+            }
+        });
+      });
+</script>
+
+
+<!--Q&A section-->
+<nav id="c-menu--slide-left2" class="c-menu c-menu--slide-left">
+    <button class="c-menu__close">&larr; Close Menu</button>
+    <div id='qnadiv'>
+    <h1 id="q__title">Q and A</h1>
+    <div id="q__feed">
+        <div class='qabox'>
+        <div class="q-header"><h3> Question-1 </h3></div>
+            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
+            <button class="readMore">ReadMore</button>
+            <ul class="answers">
+                <li>answer 1<span class="smallnum">number</span></li>
+                <li>answer 2<span class='smallnum'>number</span></li>
+                <li>answer 3<span class='smallnum'>number</span></li>
+            </ul>
+        </div>
+        <div class='qabox'>
+        <div class="q-header"><h3> Question-2 </h3></div>
+            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
+            <button class="readMore">ReadMore</button>
+            <ul class="answers">
+                <li> answer 1 </li> <span class='smallnum'>number</span>
+                <li> answer 2 </li> <span class='smallnum'>number</span>
+                <li> answer 3 </li> <span class='smallnum'>number</span>
+            </ul>
+        </div>
+        <div class="qabox">
+        <div class="q-header"><h3> Question-3 </h3></div>
+            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
+            <button class="readMore">ReadMore</button>
+            <ul class="answers">
+                <li> answer 1 </li> <span class='smallnum'>number</span>
+                <li> answer 2 </li> <span class='smallnum'>number</span>
+                <li> answer 3 </li> <span class='smallnum'>number</span>
+            </ul>
+        </div>
+        </div>
+        <div class="postForm">
+            <form id='postForm' action='submitQ' action='post'></form>
+            <p>SubjectLine:</p>
+            <input type="text" form="postForm"id="s-input"></input>
+            <p>Question:</p>
+            <textArea rows="7" cols="80" form="postForm"id="q-input"></textArea>
+            <p>TagS:</p>
+            <input type="text" form="postForm" id="t-input"></input>
+        </div>
+        <button id="postButton">Ask a Question</button>
+        <button id="cancelPost">Cancel</button>
+    </div>
+</nav>
+
+
+<!--js code for Q&A section -->
+<script>
+    jQuery(document.body).on('click', '.readMore', function(event){
+            $(this).next().show();
+            $(this).removeClass("readMore").addClass("showLess");
+            $(this).html("ShowLess");
+    });
+    jQuery(document.body).on('click','.showLess',function(event){
+            $(this).next().hide();
+            $(this).addClass("readMore").removeClass("showLess");
+            $(this).html("ReadMore");
+    });
+   $(document).ready(function(){
+        $("#postButton").click(function(){
+            $(".postForm").show();
+            $("#cancelPost").show();
+            $(this).html("Post");
+        });
+        $("#cancelPost").click(function(){
+            $("#cancelPost").hide();
+            $(".postForm").hide();
+            $("#postButton").html("Ask a Question");
+        });
+    });
+</script>
+
+
+<!-- GLOSSARY SECTION-->
+<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+  <button class="c-menu__close">&larr; Close Menu</button>
+  <div id="accordian">
+      <ul class="main-list">
+          <li>
+            <h3><span class='icon-dashboard'></span>Attributes</h3>
+            <ul class="second-list">
+                <li>
+                <span>
+                    <strong>class</strong><br>
+                    Html elements can have one or more classes, separated by spaces. You can style elements using CSS by selecting them with their classes. 
+                </span><br>
+                <u>html:</u>
+                <pre class='prettyprint linenums' class='code'>&lt;div class="header"&gt; &lt;/div&gt;</pre>
+                <u>css:</u>
+                <pre class='prettyprint linenums'class='code'>.header{background-image: '#F00'}</pre>
+                </li><br>
+                <li>
+                <span>
+                    <strong>id</strong><br>
+                    An HTML element can have an id attribute to identify it. id elements should always be unique to that single element, and each element should never have more than one id. 
+                </span><br>
+                <u>html:</u>
+                <pre class='prettyprint linenums' class='code'>&lt;div id="sloth"&gt; &lt;/div&gt;</pre>
+                <u>css:</u>
+                <pre class='prettyprint linenums'class='code'><code>#sloth{background-image: '#F00'}</code></pre>
+                </li><br>
+                <li>
+                <span>
+                    <strong>href</strong><br>
+                    Links tell the browser where to go using an href attribute, which stores a URL.
+                </span><br>
+                html:
+                <pre class='prettyprint linenums' class='code'>&lt;a href='http://google.com'&gt;Google it!&lt;a&gt;</pre>
+                </li>    
+            </ul>
+          </li>
+          <li class="active">
+              <h3><span class='icon-tasks'></span>Basic Formatting</h3>
+              <ul class="second-list">
+                  <li><p>hi</p></li>
+                  <li><p>ho</p></li>
+              </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>Body</h3>
+            <ul class="second-list">
+                <li><p>lalala</p></li>
+                <li><p>lalalo</p></li>
+                <li><p>meeow</p></li>
+            </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>Children</h3>
+            <ul class="second-list">
+                <li> mepw </li>
+
+            </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>Regular Expression</h3>
+            <ul class="second-list">
+                <li> mepw </li>
+
+            </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>Div</h3>
+            <ul class="second-list">
+                <li> mepw </li>
+
+            </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>Head</h3>
+            <ul class="second-list">
+                <li> mepw </li>
+
+            </ul>
+          </li>
+          <li>
+            <h3><span class='icon-dashboard'></span>hyperlinks</h3>
+            <ul class="second-list">
+                <li> mepw </li>
+
+            </ul>
+          </li>
+      </ul>
+  </div>
+</nav><!-- /c-menu slide-left -->
+
+<!-- js for glossary -->
+<script>
+      $(document).ready(function(){
+            $('#accordian h3').click(function(){
+              $('#accordian ul ul').slideUp();
+              if (!$(this).next().is(':visible'))
+              {
+                  $(this).next().slideDown();
+              }
+          })
+      })
+</script>
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+<!-- menus script -->
+
+
+<script>
+  
+  /**
+   * Slide left instantiation and action.
+   */
+  var slideLeft = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideLeftBtn = document.querySelector('#c-button--slide-left');
+  
+  slideLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideLeft.open();
+  });
+
+  var slideLeft2 = new Menu({
+      wrapper: '#o-wrapper',
+      type: 'slide-left2',
+      menuOpenerClass: '.c-button',
+      maskId: '#c-mask'
+  });
+
+  var slideLeftBtn2 = document.querySelector('#c-button--slide-left2');
+
+  slideLeftBtn2.addEventListener('click', function(e) {
+      e.preventDefault;
+      slideLeft2.open();
+  });
+
+
+
+  var slideRight = new Menu({
+      wrapper: "#o-wrapper",
+      type: "slide-right",
+      menuOpenerClass: ".c-button",
+      maskId: '#c-mask'
+  });
+  var slideSecondLeftBtn = document.querySelector("#c-button--slide-right");
+
+  slideSecondLeftBtn.addEventListener('click', function(e) {
+      e.preventDefault;
+      slideRight.open();
+  });
+
+
+</script>
+
+
+<!-- js script for the hamburger button. -->
+<script>
+    (function(){
+        "use strict";
+        var toggles = document.querySelectorAll(".c-hamburger");
+        for (var i = toggles.length-1; i>=0; i--){
+            var toggle = toggles[i];
+            toggleHandler(toggle);
+        };
+        function toggleHandler(toggle){
+            toggle.addEventListener("click", function(e) {
+                e.preventDefault();
+                (this.classList.contains("is-active")===true)? this.classList.remove("is-active") : this.classList.add("is-active")
+            });
+        }
+    })();
+</script>
+<!-- js code for hamburger button controlling whether other buttons are visible or not-->
+<script>
+  $(document).ready(function(){
+    $(".c-hamburger.c-hamburger--htx").click(function(){
+        var buts = document.querySelectorAll(".c-button"); 
+        for (var i = buts.length-1; i>=0; i--){                               
+            var but = $(buts[i]);                                             
+            if (but.is(":visible"))
+                but.fadeOut(800);
+            else 
+                but.fadeIn(800);
+        };
+    });
+  });
+
+</script>
+</body>
+</html>
