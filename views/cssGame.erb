@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +49,7 @@
     </nav>
     <div class="o-container">
       <h1 class="o-header__title">
-        <%=@numCorrect%> out of <%=@numOfQ%> 
+        Snake Game!
       </h1>
     </div>
   </header><!-- /o-header -->
@@ -55,62 +57,51 @@
     
     <!--style for content below-->
     <style>
-        .gif {
+        .codePen {
+            border-style: regular;
+            border-color: #6078DB;
+            border-width: 5px;
+        }
+        .wrap {
+        width: 100%;
+        margin: 0 auto;
+        }
+        .tutorial {
+            overflow-y: scroll;
             float: left;
-            margin: 10px;
+            width: 45%;
+            margin-right: 5px;
+            float: left
         }
-        .gif-embed {
-            max-width: 100%
-            border-right: 50%;
-            border-left: 50%;
-        }
-        .lil-header {
+        .arrow {
+            width: 80px;
+            height: 60px;
             float: left;
-            margin: 10px;
-            margin-left: 35px;
-            width: 50%;
-            height: 144px;
         }
-        .solutions {
-            clear: left;
-        }
-        .game-links {
-        }
-        .game-link {
-            text-decoration: none;
-            height: 50px;
-            font-size: 18px;
-            background-color:#66ff99;
-            margin: 5px;
-            color: #9966ff;
-            border: solid 2px;
-        }
-        .game-link:hover {
-            color: #66ff99;
-            background-color:#9966ff;
+        .try {
+            float: left;
+            width: 45%;
+            border-left: thick solid #ff0000;
+            margin-left: 5px;
         }
     </style>
     <div class='o-container'>
 
-        <div class='gif'>
-            <iframe src=<%=@gif%> width='240' height='144' frameBorder='0' class='gif-embed'></iframe>
+        <div class='wrap'>
+            <div class='tutorial'> 
+                <img class='arrow' src='leftArr.svg'>
+                <div class='slide' id='slide-1'>
+                <iframe class='codePen'data-height='268' scrolling='no' src='//codepen.io/mbremner322/embed/eNKrLL/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                </div>
+                <img class='arrow'src='rightArr.svg'>
+                <div class='slide' id='slide-2'>
+                    <iframe height='268' scrolling='no' src='//codepen.io/mbremner322/embed/zGajQb/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                </div>
+            </div>
+            <div class='try'>
+            </div>
         </div>
-        <div class='lil-header'>
-            Let's look at the solution!
-        </div>
-        <div class='solutions'>
-            <p>Answer explanation........
-            jfkdjfkdjsfkldsjflsdf
-            fjdklsfjdlskjfkdlsfj
-            </p>
-        </div>
-        <div class='gameLinks' align='center' style='clear: left'>
-            <a href='cssGame' class='game-link'>want to get better at css??</a>
-            <a href='jsGame' class='game-link'>want to get better at javascript?</a>
-            <a href='htmlGame' class='game-link'>want to get better at html??</a>
-        </div>
-
-
+</iframe>
 
 
 
