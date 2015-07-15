@@ -76,6 +76,8 @@ DEPENDENCIES
   activerecord
   cloudinary
   dotenv
+  json
+  mime-types
   nokogiri
   pg
   rake
@@ -83,3 +85,6 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   sqlite3
+
+BUNDLED WITH
+   1.10.5

@@ -8,6 +8,9 @@ gem 'sinatra-activerecord'
 gem 'nokogiri'
 gem 'cloudinary'
 
+gem 'json'
+gem 'mime-types'
+
 gem 'dotenv'
 
 group :development do

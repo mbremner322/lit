@@ -41,6 +41,11 @@ class SillyCatz < Sinatra::Base
                 @numCorrect += 1
             end
         end
+        if (@numCorrect==0)
+            @gif = '//giphy.com/embed/cgr5ooluAZJD2'
+        else
+            @gif = "//giphy.com/embed/5ZQCTwHXBO2Aw"
+        end
         erb :graded        
     end
 end 
