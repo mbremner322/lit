@@ -80,7 +80,8 @@
             width: 45%;
             margin-left: 5px;
         }
-        #slide-2, #slide-1, #slide-3 {
+        #slide-2, #slide-1, #slide-3,
+        #slide-4, #slide-5, #slide-6 {
             display: none;
         }
         .arr-wrap-right {
@@ -101,7 +102,7 @@
     <script>
         //moving back and forth
         $(document).ready(function(){
-            var total = 4;
+            var total = 7;
             $('#leftArr').click(function(){
                 var currSlide = document.getElementsByClassName("slide now")[0];
                 var id = currSlide.id;
@@ -139,9 +140,8 @@
                     slide-0
                     <p>Let's make a canvas element, and draw something on it. In this code snippet, I've created the canvas element, set its dimensions, and drawn a pink rectangle on it.</p>
                     <iframe class='codePen'data-height='268' scrolling='no' src='//codepen.io/mbremner322/embed/eNKrLL/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
-                    <p>The first thing to note here is that we don't call drawing methods on the canvas, but on its drawing context. Currently canvas only has one context, which we acquire by calling .getContext('2d').
+                    <p>The first thing to note here is that we don't call drawing methods on the canvas, but on its drawing context. Currently canvas only has one context, which we acquire by calling .getContext('2d').</p>
 
-First we set the fill style of the context, which takes the form of a CSS colour, e.g. #f00 or rgba(100, 100, 100, 0.5). Then we call fillRect, which takes the coordinates of the top-left hand corner of the rectangle, its width, and its height. Notice that x/y coordinates in canvas start at the top-left hand corner of the canvas - x increases to the right and y increases downwards.</p>
 
                 </div>
                 <div class='slide' id='slide-1'>
@@ -156,6 +156,18 @@ First we set the fill style of the context, which takes the form of a CSS colour
                     slide-3
                     <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/eNKKVq/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
                 </div>
+                <div class='slide' id='slide-4'>
+                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/GJGazQ/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                </div>
+                <div class='slide' id='slide-5'>
+                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/oXyrNw/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'> </iframe>
+                </div>
+                <div class='slide' id='slide-6'>
+                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/pJKXoM/?height=268&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                </div>
+
+
+
                 <div class='arr-wrap-right'>
                     <img class='arrow' id='rightArr'src='rightArr.svg'>
                 </div>
@@ -164,42 +176,48 @@ First we set the fill style of the context, which takes the form of a CSS colour
         <div class='try'>
             <canvas></canvas>
             <style type='text/css' media='screen'>
-                #editor {
+                #editor-ace {
                     position: absolute;
-                    width: 45%;
-                    height: 70%;
-                    bottom: 15px;
+                    height: 50%;
+                
+                    bottom: 65px;
+                    top: 170px;
+                    left: 55%;
+                    right: 5%;
+                }
+                #preview2 {
+                    margin-left: 60px;
+                    width: 100%;
+                    height: 100%;
                 }
             </style>
-            <div id='editor'>function foo(items) {
-                var x = 'All this is syntax highlighted';
-                return x;
-            }</div>
+            <div id='editor-ace'>&lt;html&gt;
+    &lt;head&gt;
+        &lt;script src='https://ajax.googleapis.com/ajax/libs/
+jquery/1.11.3/jquery.min.js'&gt;&lt;/script&gt;
+        &lt;script>//insert js code;&lt;/script>
+    &lt;/head&gt;
+&lt;/html&gt;</div>
             <script src='/ace-builds/src-noconflict/ace.js' type='text/javascript' charset='utf-8'></script>
             <script>
-                var editor = ace.edit("editor");
+                var editor = ace.edit("editor-ace");
                 editor.setTheme('ace/theme/monokai');
-                editor.getSession().setMode('ace/mode/javascript');
+                editor.getSession().setMode('ace/mode/html');
             </script>
-            <button id='evaluateBut' onClick='evaluate()'>Evaluate</button>
+            <div><button id='evaluateBut' onClick='evaluateBut()'>Evaluate</button></div>
             <script>
-                function evaluate() {
-                    window.alert(editor.getSession().getValue());
-                }
+                function evaluateBut() {
+                    var code = editor.getValue();
+                    var preview = $("#preview2");
+                };
             </script>
+            <div><iframe id='preview2'style='border-style:solid; border-width:5px;'></iframe></div>
         </div>
     </div>
 
 
   </main><!-- /o-content -->
 </div><!-- /o-wrapper -->
-
-
-
-
-
-
-
 
 
 
@@ -324,7 +342,6 @@ First we set the fill style of the context, which takes the form of a CSS colour
     });
 </script>
 
-
 <!-- GLOSSARY SECTION-->
 <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
   <button class="c-menu__close">&larr; Close Menu</button>
@@ -392,27 +409,6 @@ First we set the fill style of the context, which takes the form of a CSS colour
 
             </ul>
           </li>
-          <li>
-            <h3><span class='icon-dashboard'></span>Div</h3>
-            <ul class="second-list">
-                <li> mepw </li>
-
-            </ul>
-          </li>
-          <li>
-            <h3><span class='icon-dashboard'></span>Head</h3>
-            <ul class="second-list">
-                <li> mepw </li>
-
-            </ul>
-          </li>
-          <li>
-            <h3><span class='icon-dashboard'></span>hyperlinks</h3>
-            <ul class="second-list">
-                <li> mepw </li>
-
-            </ul>
-          </li>
       </ul>
   </div>
 </nav><!-- /c-menu slide-left -->
@@ -466,8 +462,6 @@ First we set the fill style of the context, which takes the form of a CSS colour
       e.preventDefault;
       slideLeft2.open();
   });
-
-
 
   var slideRight = new Menu({
       wrapper: "#o-wrapper",
