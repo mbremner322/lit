@@ -3,7 +3,12 @@ require 'sinatra'
 require 'data_mapper'
 require 'heroku'
 require 'sinatra/base'
+require 'json'
+require 'active_record'
+require 'sqlite3'
 require 'pry-byebug'
+require 'sinatra/activerecord'
+require './models.rb'
 enable :sessions
 class SillyCatz < Sinatra::Base
     TITLE= "Slides For Scrubs"
@@ -46,6 +51,20 @@ class SillyCatz < Sinatra::Base
             @gif = "//giphy.com/embed/5ZQCTwHXBO2Aw"
         end
         erb :graded        
+    end
+    
+    post '/submitQ' do
+        name = params[:subject]
+        body = params[:question]
+        tags = params[:tags]
+        rank = 0
+        Question.create({
+            name: name,
+            body: body,
+            tags: tags,
+            rank: rank
+        })
+        redirect '/webDesign'
     end
 
     get '/cssGame' do

@@ -335,13 +335,14 @@
         </div>
         </div>
         <div class="postForm">
-            <form id='postForm' action='submitQ' action='get'></form>
+            <form name='submitFormName'id='postForm' action='submitQ' method='post'></form>
+
             <p>SubjectLine:</p>
-            <input type="text" form="postForm"id="s-input"></input>
+            <input type="text" form="postForm"id="s-input" name='subject'></input>
             <p>Question:</p>
-            <textArea rows="7" cols="80" form="postForm"id="q-input"></textArea>
+            <textArea rows="7" cols="80" form="postForm"id="q-input" name='question'></textArea>
             <p>TagS:</p>
-            <input type="text" form="postForm" id="t-input"></input>
+            <input type="text" form="postForm" id="t-input"name='tags'></input>
         </div>
         <button id="postButton">Ask a Question</button>
         <button id="cancelPost">Cancel</button>
@@ -363,9 +364,15 @@
     });
    $(document).ready(function(){
         $("#postButton").click(function(){
-            $(".postForm").show();
-            $("#cancelPost").show();
-            $(this).html("Post");
+            if (this.innerHTML === 'Ask a Question'){
+                $(".postForm").show();
+                $("#cancelPost").show();
+                $(this).html("Post");
+            }
+            else {
+                document.submitFormName.submit();
+            }
+                 
         });
         $("#cancelPost").click(function(){
             $("#cancelPost").hide();

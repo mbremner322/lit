@@ -1,0 +1,97 @@
+#top-header{
+    background-color:#67B5D1;
+}
+.nav-bar{
+    width: 100%;
+    height: 50px;
+    background-color: #ff7143;
+}
+.hor-line{
+    width: 100%;
+    height:10px;
+    background-color:#19c589;
+}
+.space-holder{
+    width: 100%;
+    height: 80px;
+}
+.title{
+    text-align:center;
+    font-size: 45px;
+}
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.nav-bar li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+}
+
+/* style for menu links*/
+.nav-bar li a {
+    display: block;
+    min-width: 140px;
+    height: 50px;
+    text-align: center;
+    line-height:50px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    background: #ff7143;
+    text-decoration: none;
+}
+
+/*Hover State for top level links*/
+.nav-bar li:hover a {
+    background: #19c589;
+}
+/*style for dropdown links*/
+.nav-bar li:hover ul a {
+    background: #f3f3f3;
+    color: #2f3036;
+    height: 40px;
+    line-height: 40px;
+}
+/* Hover state for dropdown links */
+.nav-bar li: hover ul a:hover {
+    background: #19c589;
+    color: #fff;
+}
+/*Hide dropdown links unless they are needed*/
+.nav-bar li ul {
+    display: none;
+}
+/*make drop down vertical*/
+.nav-bar li ul li{
+    display: block;
+    float: none;
+}
+/*prevent text wrapping */
+.nav-bar li ul li a{
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
+}
+/*Display the dropdown on hoer*/
+.nav-bar ul li a:hover + .hidden, .hidden:hover{
+    display: block;
+}
+/*responsive styles*/
+@media screen and (max-width: 760px){
+    /* Make dropdown links appear inline*/
+    .nav-bar ul{
+        position: static;
+        display:none;
+    }
+    /*Create vertical spacing*/
+    .nav-bar li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    .nav-bar ul li, li a{
+        width: 100%;
+    }
+}

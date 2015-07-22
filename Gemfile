@@ -7,6 +7,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'nokogiri'
 gem 'cloudinary'
+gem 'data_mapper'
 
 gem 'json'
 gem 'mime-types'

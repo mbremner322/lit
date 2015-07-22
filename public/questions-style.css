@@ -1,0 +1,104 @@
+* {
+}
+#qnadiv {
+    overflow: scroll;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#q__title {
+    font-size: 16px;
+}
+#q__feed {
+    border-style: solid;
+    border-width: 3px;
+    height: auto;
+    overflow: scroll;
+    border-color: #66ff99;
+}
+.qabox {
+    border-style: solid;
+    border-width: 1px;
+    height: auto;
+    border-color: #66ff99;
+    overflow: scroll;
+}
+.answers {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #66ff99;
+    height: auto;
+    list-style: none;
+    overflow: scroll;
+    display: none;
+    max-height: 250px;
+}
+.q-header {
+    float: left;
+    width: 100px;
+    height: 50px;
+}
+.arrows {
+    float: right;
+    width:100px;
+    margin-top: 15px; 
+    height: 50px;
+    margin-bottom: 20px;
+}
+.readMore, .showLess{
+    clear: both;
+    margin-top: 50px;
+    margin-left: -100px;
+}
+.num {
+    background: #FCB712;
+    color: white;
+    height:30px;
+    width: 40px;
+    border-radius: 15%;
+    border-color:white;
+    border-style:solid;
+}
+.cansee {
+    float: left;
+}
+
+#postButton,#cancelPost {
+    background: #fac22a;
+    color: #9966ff;
+    text-transform: uppercase;
+    border: 2px solid #9966ff;
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#cancelPost {
+    display: none;
+}
+.postForm {
+    display: none;
+    border-style: solid;
+    border-width: 5px;
+    border-color:#ff3378;
+    margin-top: 5px;
+}
+.postForm p {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+#s-input, #q-input, #t-input{
+    width: 95%;
+    margin-left: 1%;
+    margin-top: none;
+    margin-bottom: 8px;
+}
+.upImage, .downImage {
+    width: 35px;
+    height: 35px;
+    margin-bottom: -7px;
+}
+
+.q-head {
+
+}

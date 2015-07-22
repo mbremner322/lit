@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<g>
+	<path fill="#5A2872" d="M50.345,49.859c-4.792-8.192-8.964-16.229-10.819-25.657c-0.463-1.855-0.772-3.709-0.618-5.564
+		c0.155-2.009,0.773-6.337,2.009-8.037c2.473-3.091,9.273-3.4,12.674-2.009c6.8,3.091,5.719,14.838,4.945,21.02
+		c-0.464,3.864-0.772,7.419-2.009,11.128c-0.928,3.091-1.7,8.655-5.41,9.737">
+	
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+<g>
+	<path fill="#892064" d="M49.762,50.972c-9.271-2.027-18.009-4.404-26.199-9.429c-1.678-0.916-3.251-1.945-4.511-3.316
+		c-1.373-1.475-4.136-4.862-4.549-6.924c-0.597-3.913,3.783-9.123,7.11-10.682c6.881-2.906,14.787,5.849,18.81,10.606
+		c2.528,2.96,4.933,5.596,6.822,9.018c1.646,2.777,5.214,7.116,3.496,10.578">
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+<g>
+	<path fill="#A9A437" d="M50.353,49.384c3.448-8.841,7.157-17.104,13.396-24.411c1.167-1.515,2.429-2.908,3.979-3.939
+		c1.671-1.126,5.447-3.328,7.549-3.415c3.959,0.019,8.423,5.158,9.444,8.688c1.799,7.25-8.081,13.696-13.408,16.928
+		c-3.317,2.035-6.296,4-9.971,5.334c-2.999,1.192-7.84,4.041-10.992,1.804">
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+<g>
+	<path fill="#A9A335" d="M53.918,47.997c-5.004,8.063-10.161,15.507-17.631,21.551c-1.423,1.276-2.918,2.416-4.631,3.146
+		c-1.849,0.802-5.963,2.276-8.044,1.978c-3.888-0.742-7.338-6.61-7.698-10.267c-0.443-7.457,10.447-11.989,16.274-14.192
+		c3.635-1.396,6.922-2.783,10.778-3.422c3.167-0.625,8.447-2.542,11.139,0.234">
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+<g>
+	<path fill="#5A2872" d="M53.019,45.512c5.427,7.785,10.227,15.465,12.824,24.715c0.609,1.813,1.065,3.637,1.059,5.498
+		c0.006,2.016-0.268,6.379-1.364,8.171c-2.221,3.278-8.973,4.127-12.475,3.011c-7.024-2.541-6.88-14.337-6.6-20.56
+		c0.155-3.89,0.18-7.458,1.118-11.254c0.679-3.155,1.007-8.763,4.619-10.136">
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+<g>
+	<path fill="#882169" d="M53.939,45.507c9.44,0.961,18.393,2.33,27.101,6.393c1.771,0.719,3.451,1.563,4.858,2.782
+		c1.531,1.31,4.661,4.362,5.305,6.363c1.038,3.819-2.722,9.493-5.851,11.42c-6.508,3.669-15.356-4.132-19.894-8.403
+		c-2.847-2.653-5.535-4.999-7.802-8.184c-1.95-2.574-5.986-6.479-4.673-10.112">
+        <animateTransform attributeName='transform'
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur= "10s"
+            repeatCount="indefinite" />
+        </path>
+</g>
+</svg>
