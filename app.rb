@@ -64,7 +64,12 @@ class SillyCatz < Sinatra::Base
             tags: tags,
             rank: rank
         })
-        redirect '/webDesign'
+#        redirect '/webDesign'
+    end
+
+    get '/question/last' do
+        question = Question.last
+        {comment_body: question.body}.to_json
     end
 
     get '/cssGame' do

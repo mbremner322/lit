@@ -370,9 +370,35 @@
                 $(this).html("Post");
             }
             else {
-                document.submitFormName.submit();
+                var subject = $('#s-input').val();
+                var question = $('#q-input').val();
+                var tags = $("#t-input").val();
+                if (subject.length == 0 || question.length == 0|| tags.length == 0)
+                    window.alert("please don't leave anything blank");
+                var request = $.ajax({
+                    type: "POST",
+                    url: "/submitQ",
+                    data: {
+                        subject: subject,
+                        question: question,
+                        tags: tags
+                    }
+                });
+                request.done(function(){
+                    $.ajax({
+                        type: "GET",
+                        url: "/question/last",
+                        dataType: "json"
+                    })
+                    .done(function(res){
+                        $('#s-input').val('');
+                        $('#q-input').val('');
+                        $('#t-input').val('');
+                        //window.alert(res);
+                    });
+                });
             }
-                 
+            
         });
         $("#cancelPost").click(function(){
             $("#cancelPost").hide();
@@ -380,6 +406,8 @@
             $("#postButton").html("Ask a Question");
         });
     });
+
+    
 </script>
 
 
