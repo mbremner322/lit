@@ -13,7 +13,7 @@ gem 'json'
 gem 'mime-types'
 
 gem 'dotenv'
-
+gem 'simple-calendar', '~> 1.1.0'
 group :development do
   gem 'sqlite3'
 end

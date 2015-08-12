@@ -46,7 +46,7 @@
       </div>
     </nav>
     <div class="o-container">
-      <h1 class="o-header__title">contents contents....</h1>
+      <h1 class="o-header__title">一言でいえば？</h1>
     </div>
   </header><!-- /o-header -->
 
@@ -76,13 +76,18 @@
         height: 150px;
         margin: 15px;
         text-align: center;
-        color: #c3b3c7;
+        color:#3B3B3B; 
+        font-size: 18px;
+        font-weight: bold;
         border-style: solid;
         border-width: 5px;
     }
     .q {
         background-color: #8a0067;
         border-color:#aaa539;
+    }
+    .spot {
+        border-color: #c363c7;
     }
     .spot:hover {
         border-color: #86a136;
@@ -170,7 +175,7 @@
         var spots = document.querySelectorAll('.spot');
         for (var i = 0; i < spots.length; i++) {
             var id = 'spot-' + (i+1).toString();
-            var innerHTML = 's' + (i+1).toString();
+            var innerHTML = 'placeHere!';
             var elem = document.getElementById(id);
             elem.innerHTML = innerHTML;
             elem.style.borderColor - "#c7b0c7"
@@ -201,37 +206,29 @@
             <div id='q-div'>
                 <h3 class='col-header'>Questions</h3>
                 <ul id="qs">
-                    <li><div id='q1' class='q'>q1</div></li>
-                    <li><div id='q2' class='q'>q2</div></li>
-                    <li><div id='q3' class='q'>q3</div></li>
+                    <li><div id='q1' class='q'><p><%=@qs[0]%></p></div></li>
+                    <li><div id='q2' class='q'><p><%=@qs[1]%></p></div></li>
+                    <li><div id='q3' class='q'><p><%=@qs[2]%></p></div></li>
                 </ul>
             </div>
             <div id='s-div'>
                 <h3 class='col-header'>Drag to here!</h3>
                 <ul id='spots'>
-                    <li><div id='spot-1' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)">s1</div></li>
-                    <li><div id='spot-2' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)">s2</div></li>
-                    <li><div id='spot-3' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)">s3</div></li>
+                    <li><div id='spot-1' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)"><p>placeHere!</p></div></li>
+                    <li><div id='spot-2' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)"><p>placeHere!</p></div></li>
+                    <li><div id='spot-3' class='spot' ondrop="drop(event)" ondragover="allowDrop(event)"><p>placeHere!</p></div></li>
                 </ul>
             </div>
             <div id='d-div'>
                 <h3 class='col-header'>Drag these </h3>
                 <ul id='drags'>
+                    <% @arr.each do |i| %> 
                     <li>
-                        <div id='drag-1' class='drag' draggable=true ondragstart='drag(event)'>
-                            <p draggable=false>d1</p>
+                        <div id='drag-<%=i+1%>' class='drag' draggable=true ondragstart='drag(event)'>
+                            <p draggable=false><%=@as[i]%></p>
                         </div>
                     </li>
-                    <li>
-                        <div id='drag-2' class='drag' draggable=true ondragstart='drag(event)'>
-                            <p draggable=false>d2</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div id='drag-3' class='drag' draggable=true ondragstart='drag(event)'>
-                            <p draggable='false'>d3</div>
-                        </div>
-                    </li>
+                    <% end %>
                 </ul>
             </div>
         </div>
@@ -303,47 +300,43 @@
     <div id='qnadiv'>
     <h1 id="q__title">Q and A</h1>
     <div id="q__feed">
+        <%@questions.each do |q|%>
         <div class='qabox'>
-        <div class="q-header"><h3> Question-1 </h3></div>
-            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
+        
+   <div class="q-header"><p><%=q.name%> </p></div>
+            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a><%=q.rank%><a href="#"><img src="downIcon.png" class="upImage"></a></div>
             <button class="readMore">ReadMore</button>
             <ul class="answers">
-                <li>answer 1<span class="smallnum">number</span></li>
-                <li>answer 2<span class='smallnum'>number</span></li>
-                <li>answer 3<span class='smallnum'>number</span></li>
+                <p class="question"><%=q.body%></p><button class='reply'>Reply</button>
+                
+            <div class="postForm">
+                <% Comment.order(:rank).each do |t| %>
+                <p>comment: <%= t.body %></p?
+                <% end %>
+                    <form name='replyName<%=q.id%>' 
+                            action='/submitR/<%=q.id%>' method='post'></form>
+
+                    <p>SubjectLine:</p>
+                    <textarea type="text" form="replyName<%=q.id%>"id="replyInput"
+                                name='subject'></textarea>
+                    <button type='submit' form='replyName<%=q.id%>'class='replySubmit'>submit</button>
+                    <button type='button'class='replyCancel'>cancel</button>
+            </div>
+            
             </ul>
         </div>
-        <div class='qabox'>
-        <div class="q-header"><h3> Question-2 </h3></div>
-            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
-            <button class="readMore">ReadMore</button>
-            <ul class="answers">
-                <li> answer 1 </li> <span class='smallnum'>number</span>
-                <li> answer 2 </li> <span class='smallnum'>number</span>
-                <li> answer 3 </li> <span class='smallnum'>number</span>
-            </ul>
-        </div>
-        <div class="qabox">
-        <div class="q-header"><h3> Question-3 </h3></div>
-            <div class="arrows"><a href="#"><img src="upIcon.png" class="upImage"></a>Num<a href="#"><img src="downIcon.png" class="upImage"></a></div>
-            <button class="readMore">ReadMore</button>
-            <ul class="answers">
-                <li> answer 1 </li> <span class='smallnum'>number</span>
-                <li> answer 2 </li> <span class='smallnum'>number</span>
-                <li> answer 3 </li> <span class='smallnum'>number</span>
-            </ul>
-        </div>
-        </div>
-        <div class="postForm">
+        <% end %>
+    </div>
+    <div class="postForm">
             <form name='submitFormName'id='postForm' action='submitQ' method='post'></form>
 
             <p>SubjectLine:</p>
             <input type="text" form="postForm"id="s-input" name='subject'></input>
             <p>Question:</p>
             <textArea rows="7" cols="80" form="postForm"id="q-input" name='question'></textArea>
-            <p>TagS:</p>
+            <p>Tags:</p>
             <input type="text" form="postForm" id="t-input"name='tags'></input>
-        </div>
+    </div>
         <button id="postButton">Ask a Question</button>
         <button id="cancelPost">Cancel</button>
     </div>
@@ -362,6 +355,18 @@
             $(this).addClass("readMore").removeClass("showLess");
             $(this).html("ReadMore");
     });
+    jQuery(document.body).on('click', '.reply', function(event){
+            $(this).next().show();
+            $(this).hide();
+    });
+    jQuery(document.body).on('click', '.replyCancel', function(event){
+            $(this).parent().hide();
+            $(this).parent().prev().show();
+    });
+    jQuery(document.body).on('click','.replySubmit', function(event){
+            $(this).prev().prev().prev().submit();
+    });
+    
    $(document).ready(function(){
         $("#postButton").click(function(){
             if (this.innerHTML === 'Ask a Question'){
@@ -375,7 +380,8 @@
                 var tags = $("#t-input").val();
                 if (subject.length == 0 || question.length == 0|| tags.length == 0)
                     window.alert("please don't leave anything blank");
-                var request = $.ajax({
+                else {
+                    var request = $.ajax({
                     type: "POST",
                     url: "/submitQ",
                     data: {
@@ -394,9 +400,10 @@
                         $('#s-input').val('');
                         $('#q-input').val('');
                         $('#t-input').val('');
-                        //window.alert(res);
+                        location.reload();
                     });
                 });
+                }
             }
             
         });

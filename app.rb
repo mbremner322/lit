@@ -11,18 +11,11 @@ require 'sinatra/activerecord'
 require './models.rb'
 enable :sessions
 class SillyCatz < Sinatra::Base
-    TITLE= "Slides For Scrubs"
-    
-    
-    def get_file(name)
-        name = '/episodes/'+name
-    end
-
     
     get '/' do
-        erb :home
+        erb :cssButton
+        #erb :home
     end
-
 
 
     get '/courseSelection' do
@@ -30,6 +23,11 @@ class SillyCatz < Sinatra::Base
     end
     
     get '/webDesign' do
+        @arr = [0, 1, 2].shuffle
+        @qs = ['HTML','CSS','javascript']
+        @as = ['ものの配置','飾り付け','機能付']
+        @questions = Question.order(:rank)
+        @comments = Comment.order(:rank)
         erb :sampleCourse
     end
     
@@ -45,14 +43,18 @@ class SillyCatz < Sinatra::Base
                 @numCorrect += 1
             end
         end
-        if (@numCorrect==0)
-            @gif = '//giphy.com/embed/cgr5ooluAZJD2'
+        if (@numCorrect==3)
+            redirect '/webD/sample'
         else
-            @gif = "//giphy.com/embed/5ZQCTwHXBO2Aw"
+            redirect '/webD/explanation'
         end
         erb :graded        
     end
     
+    get '/webD/explanation' do
+        erb :webDexp
+    end
+
     post '/submitQ' do
         name = params[:subject]
         body = params[:question]
@@ -65,6 +67,16 @@ class SillyCatz < Sinatra::Base
             rank: rank
         })
 #        redirect '/webDesign'
+    end
+
+    post '/submitR/:id' do
+        id = params[:id]
+        Comment.create({
+            body: params[:subject],
+            rank: 0,
+            question_id: id
+        })
+        redirect '/webDesign'
     end
 
     get '/question/last' do
@@ -83,6 +95,8 @@ class SillyCatz < Sinatra::Base
     get '/htmlGame' do
         erb :htmlGame
     end
+    
+    
 end 
 
 run SillyCatz.run!

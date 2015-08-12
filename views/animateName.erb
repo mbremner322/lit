@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Sample Glossary</title>
+  <title>Animate Your Name</title>
   <meta name="description" content="Some slide and push menu demos using CSS3 transitions.">
   <link rel="stylesheet" href="/font-awesome.css">
   <link rel="stylesheet" href="/slide-style.css">
@@ -47,7 +47,7 @@
     </nav>
     <div class="o-container">
       <h1 class="o-header__title">
-        Snake Game!
+        Animate Your Name!
       </h1>
     </div>
   </header><!-- /o-header -->
@@ -58,7 +58,6 @@
         .codePen {
             border-style: regular;
             border-color: #6078DB;
-            height: 500px;
             border-width: 5px;
         }
         .wrap {
@@ -103,9 +102,9 @@
     <script>
         //moving back and forth
         $(document).ready(function(){
-            var total = 7;
+            var total = 4;
             $('#leftArr').click(function(){
-                var currSlide = document.getElementsByClassName("slide now")[0];
+                var currSlide = document.getElementsByClassName("now")[0];
                 var id = currSlide.id;
                 var num = parseInt(id.slice(-1));
                 var newNum = (((num - 1) % total) + total) % total;
@@ -117,7 +116,7 @@
                 newSlide.classList.add('now');
             });
             $('#rightArr').click(function(){
-                var currSlide = document.getElementsByClassName("slide now")[0];
+                var currSlide = document.getElementsByClassName("now")[0];
                 var id = currSlide.id;
                 var num = parseInt(id.slice(-1));
                 var newNum = (((num + 1) % total) + total) % total;
@@ -137,37 +136,19 @@
                 <div class='arr-wrap-left'>
                     <img class='arrow' id='leftArr'src='leftArr.svg'>
                 </div>
-                <div class='slide now' id='slide-0'>
-                    slide-0
-                    <p>Let's make a canvas element, and draw something on it. In this code snippet, I've created the canvas element, set its dimensions, and drawn a pink rectangle on it.</p>
-                    <iframe class='codePen'data-height='500' scrolling='no' src='//codepen.io/mbremner322/embed/eNKrLL/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
-                    <p>The first thing to note here is that we don't call drawing methods on the canvas, but on its drawing context. Currently canvas only has one context, which we acquire by calling .getContext('2d').</p>
-
+                <div class='now' id='slide-0'>
+                    <p>横のEvaluate を押してみよう！</p>
 
                 </div>
-                <div class='slide' id='slide-1'>
-                    Slide-1
-                    <iframe height='268' class='codePen'scrolling='no' src='//codepen.io/mbremner322/embed/zGajQb/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                <div id='slide-1'>
+                    <p>line 15のmyNameの変数を'LiT!'から自分の名前に変えてみよう</p>
                 </div>
-                <div class='slide' id='slide-2'>
-                    slide-2
-                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/zGaaGQ/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                <div id='slide-2'>
+                    <p>line10-15 はrgbで色を指定している。letterColorsの変数の中身を他の色に変えてみよう。</p>
                 </div>
-                <div class='slide' id='slide-3'>
-                    slide-3
-                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/eNKKVq/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+                <div id='slide-3'>
+                    <p>bubbleShapeの変数を'square'（四角）から'circle'に変えてみよう</p>
                 </div>
-                <div class='slide' id='slide-4'>
-                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/GJGazQ/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
-                </div>
-                <div class='slide' id='slide-5'>
-                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/oXyrNw/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'> </iframe>
-                </div>
-                <div class='slide' id='slide-6'>
-                    <iframe class='codePen'height='268' scrolling='no' src='//codepen.io/mbremner322/embed/pJKXoM/?height=500&theme-id=16852&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
-                </div>
-
-
 
                 <div class='arr-wrap-right'>
                     <img class='arrow' id='rightArr'src='rightArr.svg'>
@@ -177,7 +158,7 @@
         <div class='try'>
             <style type='text/css' media='screen'>
                 #editor-ace {
-                    width: 660px;
+                    width: 100%;
                     height: 330px;
                     /*--
                     height: 50%;
@@ -195,7 +176,7 @@
                 #evaluateBut {
                     text-decoration: none;
                     height: 30px;
-                    width: 660px;
+                    width: 100%;
                     font-size: 14px;
                     background-color:#66ff99;
                     color: #9966ff;
@@ -209,23 +190,37 @@
                     background-color:#E050B9;
                 }
             </style>
-            <div><button id='evaluateBut' onClick='evaluateBut()'>Run!</button></div>
+            <div><iframe id='preview2'style='border-style:solid; border-width:5px;'></iframe></div>
+    </div>
+            <div><button id='evaluateBut' onClick='evaluateBut()'>Evaluate</button></div>
             <div id='editor-ace'>&lt;html&gt;
     &lt;head&gt;
-        &lt;script src='https://ajax.googleapis.com/ajax/libs/
-jquery/1.11.3/jquery.min.js'&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
+        &lt;script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js">&lt;/script>
     &lt;/head&gt;
     &lt;body&gt;
+        &lt;center>&lt;canvas id="myCanvas">&lt;/canvas>&lt;/center>
+        &lt;script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js">&lt;/script>
         &lt;script>
-            //insert js code;
+            var red = [0,100,63];
+            var orange = [40, 100, 60];
+            var green = [75, 100, 40];
+            var blue = [196, 77, 55];
+            var purple = [280, 50, 60];
+            var myName = 'LiT!'
+            var letterColors = [red, orange, green];
+            bubbleShape='square';
+            drawName(myName, letterColors);
+            bounceBubbles();
         &lt;/script>
-    &lt;/body&gt;
+    &lt;/body&gt;  
 &lt;/html&gt;</div>
             <script src='/ace-builds/src-noconflict/ace.js' type='text/javascript' charset='utf-8'></script>
             <script>
                 var editor = ace.edit("editor-ace");
                 editor.setTheme('ace/theme/monokai');
                 editor.getSession().setMode('ace/mode/html');
+                editor.setShowPrintMargin(false);
                 function evaluateBut() {
                     var code = editor.getValue();
                     var previewFrame = document.getElementById('preview2');
@@ -235,9 +230,7 @@ jquery/1.11.3/jquery.min.js'&gt;&lt;/script&gt;
                     preview.close();
                 };
             </script>
-            <div><iframe id='preview2'style='border-style:solid; border-width:5px;'></iframe></div>
         </div>
-    </div>
 
 
   </main><!-- /o-content -->

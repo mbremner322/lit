@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>CRASH COURSE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+<!--  <link rel="stylesheet" href="nav-bar.css"> -->
+  <script type="text/javascript" src='/google-code-prettify/prettify.js'></script>
+    <link rel='stylesheet'href="/webDexp-style.css">
+    <script type='text/javascript' src='/htmlcrash.js'></script>
+</head>
+<style>
+    code.prettyprint{
+        overflow-x:scroll;
+        overflow-y:hidden;
+        font-size:12px;
+        white-space:pre;
+        word-wrap: normal;
+   }
+</style>
+<body onload="prettyPrint()">
+    <div id='header'>
+        <h3>HTML/CSS/JAVASCRIPT Crash Course</h3>
+    </div>
+    <div id='content'>
+        <div class='episode hide'id='ep0'>
+            <h3 class='miniTitle'>HTMLとCSS・inseparable friends</h3>
+            <p> 初めに</p>
+            <ul>
+                <li>HTML はページの構造を作るのに使います。テキストを入れたり、写真やリンクなどを貼り付けるのもHTMLです。</li>
+                <li>CSS　はページのデザイン、レイアウトなどをコントロールします。</li>
+            </ul>
+            <p> CSS 有りと無しではどれくらい違うかな？</p>
+            <div class='demonstrator'>
+                <button id='noCss'>HTMLだけ</button><button id='showCss'>HTMLとCSS</button>
+                <br>
+                <br>
+                <iframe id="onlyHTMLframe"></iframe>
+                <iframe id="HTMLnCSSframe"></iframe>
+
+            </div>
+        </div>
+        <div class='episode now'id='ep1' >
+            <h3 class='miniTitle' id='miniTitle1'>HTMLを試してみよう！</h3>
+            <div class='epi-left'>
+                <div class='mini-epi hide' id='mep0'>
+                    <p> &lt;h1> と &lt;p>はテキストを入れるときに使うよ！</p>
+                    <p>下のエディターの<&lt;body>&lt;body>の中に<code>&lt;p>GoodMorning!&lt;/p></code>と書き込んでみてEvaluate!のボタンを押してみよう！</p>
+                    <p>p を h1、 h2、 h3、 h4、に変えてみたらどうなるかな？</p>
+                    <p>ブロックに囲みたいときは&lt;div>  &lt;/div> で囲むよ！</p>
+                </div>
+                <div class='mini-epi hide' id='mep1'>
+                    <p>次は、写真とリンクをつけてみよう！</p>
+                    <p>写真の乗せ方：<pre>  &lt;img src='http://www.tehcute.com/pics/201109/baby-turtle-eats-strawberry.jpg'
+    width='324' height='244'></pre>
+                    <p>リンクの乗せ方：<pre>    &lt;a href="https://www.google.com/">Click Here!&lt;/a></pre></p>
+                </div>
+                <div class='mini-epi hide' id='mep2'>
+                    <img src='/img/howToUrl.png'width="430"height="230">
+                    <p>ダブルクリック、Copy Image URLでどの写真のUrlもコピー！</p>
+                </div>
+                <div class='mini-epi hide' id='mep3'>
+                    <p>src=の後は写真のurlを入れるよ！</p>
+                    <ul>
+                        <li>"https://goo.gl/Lva9p1"のurlに変えてみよう！</li>
+                    </ul>
+                    <p >href=の後はリンクの先を入れるよ！</p>
+                    <ul >
+                        <li>"https://www.google.com/"の代わりに"https://www.yahoo.com/"にしてみよう！</li>
+                        <li>Click Here! を他のテキストに変えてみたらどうなるかな？</li>
+                        <li>Click Here! の代わりに写真を入れてみたら？</li>
+                    </ul>
+                </div>
+                <div class='mini-epi hide' id='mep4'>
+                    <p>最後はリストの作り方：</p>
+                    <p> &lt;u> &lt;/u>でリストを囲んで、行ごとは&lt;li> と&lt;/li>で囲む。</p>
+                    <p> 下のコードを書き込んでみよう！</p>
+                    <pre>   &lt;u>
+        &lt;li>meep&lt;/li>
+        &lt;li>maap&lt;/li>
+        &lt;li>moop&lt;/li>
+    &lt;/u></pre>
+                </div>
+                <div class='mini-epi now' id='mep5'>
+                    
+                </div>
+                <div class='blueBut' id='mbackBut'style='text-align:center'>Back</div>
+                <div class='blueBut' id='nextBut'style='text-align:center'>Next</div>
+            </div>
+            <div class='epi-right'>
+                <iframe id='preview-frame-1'></iframe>
+            </div>
+            <div><button id='evaluate'>Evaluate!</button></div>
+            <div id='editor-ace'>&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p>Hello!&lt;/p>
+    &lt;/body&gt;  
+&lt;/html&gt;</div>
+            <script src='/ace-builds/src-noconflict/ace.js' type='text/javascript' charset='utf-8'></script>
+            <script>
+                var editor = ace.edit("editor-ace");
+                editor.setTheme('ace/theme/monokai');
+                editor.getSession().setMode('ace/mode/html');
+                editor.setShowPrintMargin(false);
+            </script>
+        </div>
+        <div class='blueBut left' id='backBut'>BACK!</div><div id='okBut'class='blueBut right'>OK!</div>
+    </div>
+ 
+</body>
+</html>
