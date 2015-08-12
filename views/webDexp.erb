@@ -81,7 +81,32 @@
     &lt;/u></pre>
                 </div>
                 <div class='mini-epi now' id='mep5'>
-                    
+                    <p>CSSのコードは&lt;head>の中にある&lt;style>の中に入れよう！CSSを使うためにはDOM(DocumentObjectModel)のエレメントを指定（セレクト）しなくてはいけません。主に方法は3つあります。</p>        
+                    <div class='css-demo tags' >
+                        <p>タグでセレクト</p>
+                        <div  style='display:none'>
+                            <p>HTMLで使う&lt;p>や&lt;div>などを全て選択するときに使うよ</p>
+                            <p>bodyの色を変えるのは: <code>body{ background-color: #AE51BC;}</code></p>
+                            <p>pのフォントサイズを変えるのは：<code>p{font-size: 30px;}</code></p>
+                        </div>
+                    </div>
+                    <div class='css-demo classes' >
+                        <p>クラスでセレクト</p>
+                        <div style='display:none'>
+                            <p>HTMLのタグの中にclass='className'という形でクラス名を指定してそれを'.className' ってcssで使うよ。</p>
+                            <p>HTML: <code>&lt;div class='header'> This is a header &lt;/div></code></p>
+                            <p>CSS: <code>.header {background-image: url(https://goo.gl/Lva9p1);height:100px;}</code></p>
+                        </div>
+                    </div>
+                    <div class='css-demo ids'>
+                        <p>idでセレクト</p>
+                        <div style='display:none'>
+                            <p>HTMLのタグの中にid='idName'という形でクラス名を指定してそれを'.idName' ってcssで使うよ。</p>
+                            <p>HTML: <code>&lt;div id='header'> This is a header &lt;/div></code></p>
+                            <p>CSS: <code>#header {background-image: url(https://goo.gl/Lva9p1);height:100px;}</code></p>
+                        </div>
+                    </div>
+                    <p style='clear:left'>エディターの中にサンプルコードを入れて試してみよう！</p>
                 </div>
                 <div class='blueBut' id='mbackBut'style='text-align:center'>Back</div>
                 <div class='blueBut' id='nextBut'style='text-align:center'>Next</div>

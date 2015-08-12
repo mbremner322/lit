@@ -58,9 +58,11 @@ $(document).ready(function(){
         else $('#miniTitle1')[0].innerHTML = 'HTMLを試してみよう！';
         if(nextNum == 5) {
             code = ace.edit("editor-ace").getValue();
-            code = code.split("</head>");
-            code = code[0] + "\t<style>\n\n\t\t</style>\n</head>" + code[1]
-            ace.edit("editor-ace").setValue(code);
+            if (code.indexOf("<style>") <= -1){
+                code = code.split("</head>");
+                code = code[0] + "\t<style>\n\n\t\t</style>\n</head>" + code[1]
+                ace.edit("editor-ace").setValue(code);
+            }
         }
         $("#"+oldId).hide();
         $("#"+oldId).removeClass("now");    
@@ -83,5 +85,73 @@ $(document).ready(function(){
         $("#"+newId).removeClass("hide");
         $("#"+newId).addClass("now");
     });
+    $(".css-demo").click(function(){
+        if ($(this).hasClass("ids")) {
+            if ($(this).hasClass("on")){
+                $(this).prev().show();
+                $(this).prev().prev().show();
+                $(this).css("width","28%");
+                $(this).removeClass("on");
+                $(this).addClass("off"); 
+                $(this).css("font-size","20px");
+                $(this).css("text-align","center");
+                $(this).children("div").hide();
+            }
+            else{
+                $(this).prev().hide();
+                $(this).prev().prev().hide();
+                $(this).css("width","100%");
+                $(this).removeClass("off");
+                $(this).addClass('on');
+                $(this).css("font-size","14px");
+                $(this).css("text-align","left");
+                $(this).children("div").show();
+            }
+        }
+        else if ($(this).hasClass("classes")){
+            if ($(this).hasClass("on")){
+                $(this).prev().show();
+                $(this).next().show();
+                $(this).css("width","28%");
+                $(this).removeClass("on");
+                $(this).addClass("off"); 
+                $(this).css("font-size","20px");
+                $(this).css("text-align","center");
+                $(this).children("div").hide();
+            }
+            else{
+                $(this).prev().hide();
+                $(this).next().hide();
+                $(this).css("width","100%");
+                $(this).removeClass("off");
+                $(this).addClass('on');
+                $(this).css("font-size","14px");
+                $(this).css("text-align","left");
+                $(this).children("div").show();
+            }
+        }
+        else {//tags
+            if ($(this).hasClass("on")){
+                $(this).next().next().show();
+                $(this).next().show();
+                $(this).css("width","28%");
+                $(this).removeClass("on");
+                $(this).addClass("off"); 
+                $(this).css("font-size","20px");
+                $(this).css("text-align","center");
+                $(this).children("div").hide();
+            }
+            else{
+                $(this).next().next().hide();
+                $(this).next().hide();
+                $(this).css("width","100%");
+                $(this).removeClass("off");
+                $(this).addClass('on');
+                $(this).css("font-size","14px");
+                $(this).css("text-align","left");
+                $(this).children("div").show();
+            }
 
+        }
+    });
 });

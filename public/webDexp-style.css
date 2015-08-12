@@ -142,3 +142,32 @@ iframe {
     clear:both;
     height: 230px;
 }
+.css-demo {
+    float: left;
+    width: 30%; 
+    height: 140px;
+    text-align: center;
+    margin-right: 5px;
+    color: white;
+    font-size: 20px;
+    vertical-align: middle;
+    border-left: 5px;
+}
+.css-demo.tags{
+    background-color: #AE51BC;
+}
+.css-demo.tags:hover {
+    border: 3px solid #E5B749;
+}
+.css-demo.classes{
+    background-color:#E5B749;
+}
+.css-demo.classes:hover {
+    border: 3px solid #60DCDB;
+}  
+.css-demo.ids{
+    background-color: #60DCDB;
+}
+.css-demo.ids:hover { 
+    border: 3px solid #AE51BC;
+}
