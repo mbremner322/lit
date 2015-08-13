@@ -19,10 +19,10 @@
 </style>
 <body onload="prettyPrint()">
     <div id='header'>
-        <h3>HTML/CSS/JAVASCRIPT Crash Course</h3>
+        <h3>HTML/CSS Crash Course</h3>
     </div>
     <div id='content'>
-        <div class='episode hide'id='ep0'>
+        <div class='episode now'id='ep0'>
             <h3 class='miniTitle'>HTMLとCSS・inseparable friends</h3>
             <p> 初めに</p>
             <ul>
@@ -39,12 +39,12 @@
 
             </div>
         </div>
-        <div class='episode now'id='ep1' >
+        <div class='episode hide'id='ep1' >
             <h3 class='miniTitle' id='miniTitle1'>HTMLを試してみよう！</h3>
             <div class='epi-left'>
-                <div class='mini-epi hide' id='mep0'>
+                <div class='mini-epi now' id='mep0'>
                     <p> &lt;h1> と &lt;p>はテキストを入れるときに使うよ！</p>
-                    <p>下のエディターの<&lt;body>&lt;body>の中に<code>&lt;p>GoodMorning!&lt;/p></code>と書き込んでみてEvaluate!のボタンを押してみよう！</p>
+                    <p>下のエディターの&lt;/body>&lt;body>の中に<code>&lt;p>GoodMorning!&lt;/p></code>と書き込んでみてEvaluate!のボタンを押してみよう！</p>
                     <p>p を h1、 h2、 h3、 h4、に変えてみたらどうなるかな？</p>
                     <p>ブロックに囲みたいときは&lt;div>  &lt;/div> で囲むよ！</p>
                 </div>
@@ -80,7 +80,7 @@
         &lt;li>moop&lt;/li>
     &lt;/u></pre>
                 </div>
-                <div class='mini-epi now' id='mep5'>
+                <div class='mini-epi hide' id='mep5'>
                     <p>CSSのコードは&lt;head>の中にある&lt;style>の中に入れよう！CSSを使うためにはDOM(DocumentObjectModel)のエレメントを指定（セレクト）しなくてはいけません。主に方法は3つあります。</p>        
                     <div class='css-demo tags' >
                         <p>タグでセレクト</p>
@@ -108,6 +108,10 @@
                     </div>
                     <p style='clear:left'>エディターの中にサンプルコードを入れて試してみよう！</p>
                 </div>
+                <div class='mini-epi hide' id='mep6'>
+                    cssで変えられるよく使うPropertyのリスト
+                    <img src='/img/cssProperties.png'width='440'height='240'>
+                </div>
                 <div class='blueBut' id='mbackBut'style='text-align:center'>Back</div>
                 <div class='blueBut' id='nextBut'style='text-align:center'>Next</div>
             </div>
@@ -131,7 +135,12 @@
                 editor.setShowPrintMargin(false);
             </script>
         </div>
+        <div class='episode hide'id='ep2'>
+            <h3 class='miniTitle'>END OF CRASH COURSE!</h3>
+            <h2 style='text-align:center'>なんとなく分かったかな？オッケー！何か作ってみよう！</h2>
+        </div>
         <div class='blueBut left' id='backBut'>BACK!</div><div id='okBut'class='blueBut right'>OK!</div>
+        <form method='get' action='/animateName' id='finalForm'></form>
     </div>
  
 </body>
