@@ -1,3 +1,10 @@
+code.prettyprint{
+    overflow-x:scroll;
+    overflow-y:hidden;
+    font-size:12px;
+    white-space:pre;
+    word-wrap: normal;
+}
 body {
     margin: 0;
     background-color: white;
@@ -137,7 +144,7 @@ iframe {
     margin-right: 5px;
     height; 100%;
 }
-#editor-ace,#editor2 {
+#editor-ace {
     width: 100%;
     clear:both;
     height: 230px;

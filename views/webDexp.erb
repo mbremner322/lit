@@ -8,15 +8,6 @@
     <link rel='stylesheet'href="/webDexp-style.css">
     <script type='text/javascript' src='/htmlcrash.js'></script>
 </head>
-<style>
-    code.prettyprint{
-        overflow-x:scroll;
-        overflow-y:hidden;
-        font-size:12px;
-        white-space:pre;
-        word-wrap: normal;
-   }
-</style>
 <body onload="prettyPrint()">
     <div id='header'>
         <h3>HTML/CSS Crash Course</h3>
@@ -119,6 +110,11 @@
                 <iframe id='preview-frame-1'></iframe>
             </div>
             <div><button id='evaluate'>Evaluate!</button></div>
+        </div>
+        <div class='episode hide'id='ep2'>
+            <h3 class='miniTitle'>END OF CRASH COURSE!</h3>
+            <h2 style='text-align:center'>なんとなく分かったかな？オッケー！何か作ってみよう！</h2>
+        </div>
             <div id='editor-ace'>&lt;html&gt;
     &lt;head&gt;
         &lt;script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
@@ -134,11 +130,6 @@
                 editor.getSession().setMode('ace/mode/html');
                 editor.setShowPrintMargin(false);
             </script>
-        </div>
-        <div class='episode hide'id='ep2'>
-            <h3 class='miniTitle'>END OF CRASH COURSE!</h3>
-            <h2 style='text-align:center'>なんとなく分かったかな？オッケー！何か作ってみよう！</h2>
-        </div>
         <div class='blueBut left' id='backBut'>BACK!</div><div id='okBut'class='blueBut right'>OK!</div>
         <form method='get' action='/animateName' id='finalForm'></form>
     </div>

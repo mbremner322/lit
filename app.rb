@@ -13,7 +13,10 @@ enable :sessions
 class SillyCatz < Sinatra::Base
     
     get '/' do
-        erb :cssButton
+
+        @questions = Question.order(:rank)
+        @comments = Comment.order(:rank)
+        erb :snakeInteractive
         #erb :home
     end
 
@@ -44,7 +47,7 @@ class SillyCatz < Sinatra::Base
             end
         end
         if (@numCorrect==3)
-            redirect '/webD/sample'
+            redirect '/webD/moreQ'
         else
             redirect '/webD/explanation'
         end
@@ -54,7 +57,10 @@ class SillyCatz < Sinatra::Base
     get '/webD/explanation' do
         erb :webDexp
     end
+    get '/animateName' do
 
+        erb :animateName
+    end
     post '/submitQ' do
         name = params[:subject]
         body = params[:question]

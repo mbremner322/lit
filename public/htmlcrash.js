@@ -1,6 +1,18 @@
 $(document).ready(function(){
     $(".episode.hide").hide();
     $(".mini-epi.hide").hide();
+    var editorEl = document.getElementById('editor-ace');
+    function makeSmaller(){
+        editorEl.style.width='0';
+        editorEl.style.height='0';
+        ace.edit('editor-ace').resize();
+    }
+    function makeBigger(){
+        editorEl.style.width='100%';
+        editorEl.style.height='230px';
+        ace.edit('editor-ace').resize();
+    }
+    makeSmaller();
     var previewFrame = document.getElementById("preview-frame-1"); 
     var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
     var editor = ace.edit("editor-ace");
@@ -8,8 +20,8 @@ $(document).ready(function(){
     preview.open();
     preview.write(code);
     preview.close();
-    var numOfEp = 2; //number of episodes present;
-    var numOfmEp = 6; //number of miniEp present;
+    var numOfEp = 3; //number of episodes present;
+    var numOfmEp = 7; //number of miniEp present;
     document.getElementById('onlyHTMLframe').contentWindow.document.write("<html><body><div>programming</div><div>is</div><div>awesome!</div></body></html>");
     document.getElementById('HTMLnCSSframe').contentWindow.document.write("<html><body><style>body{background-color:#F1A1DC;} .1{text-align:right;} .2{text-align:left;} .3{text-align:center;}</style><div class='1'style='text-align:left; color:#009faa; position:absolute;font-size:36px;width: 50%;'>programming</div><div class='2'style='text-align:right; font-size: 50px; color:#08855c;'>is</div><div class='3'style='text-align:center; color: #FF3200;font-weight: bold; font-size: 60px;'>awesome!</div></body></html>");
     $('#HTMLnCSSframe').hide();
@@ -24,7 +36,17 @@ $(document).ready(function(){
     $("#okBut").click(function(){
         var oldId = $(".episode.now")[0].id;
         var currNum = parseInt(oldId.slice(-1));
+        if (currNum == 2) { 
+            $("#finalForm").submit();  
+            makeSmaller();
+        }
         var nextNum = (currNum + 1) % numOfEp;
+        if (nextNum == 1) {
+            makeBigger();
+        }
+        else if (nextNum == 2){
+            makeSmaller();
+        }
         var newId = "ep"+ nextNum.toString();
         $("#"+oldId).hide();
         $("#"+oldId).removeClass("now");    
@@ -34,8 +56,18 @@ $(document).ready(function(){
     $("#backBut").click(function(){
         var oldId = $(".episode.now")[0].id;
         var currNum = parseInt(oldId.slice(-1));
+        if (currNum == 0) return;
         var nextNum = ((currNum - 1) % numOfEp + numOfEp)%numOfEp;
         var newId = "ep"+ nextNum.toString();
+        if (nextNum == 1) {
+            makeBigger();
+        }
+        else if (nextNum == 2){
+            makeSmaller();
+        }
+        else if(nextNum == 0){
+            makeSmaller();
+        }
         $("#"+oldId).hide();
         $("#"+oldId).removeClass("now");    
         $("#"+oldId).addClass("hide");    
@@ -44,12 +76,13 @@ $(document).ready(function(){
         $("#"+newId).addClass("now");
     });
     $("#evaluate").click(function evaluateBut() {
-        code = ace.edit("editor-ace").getValue();
+        code = editor.getValue();
         preview.open();
         preview.write(code);
         preview.close();
     });
     $("#nextBut").click(function() {
+        $("#ace-editor").show();
         var oldId = $(".mini-epi.now")[0].id;
         var currNum = parseInt(oldId.slice(-1));
         var nextNum = ((currNum + 1) % numOfmEp + numOfmEp)%numOfmEp;
@@ -64,6 +97,7 @@ $(document).ready(function(){
                 ace.edit("editor-ace").setValue(code);
             }
         }
+        if(currNum === 6) $("#okBut").trigger('click');
         $("#"+oldId).hide();
         $("#"+oldId).removeClass("now");    
         $("#"+oldId).addClass("hide");
@@ -85,6 +119,7 @@ $(document).ready(function(){
         $("#"+newId).removeClass("hide");
         $("#"+newId).addClass("now");
     });
+    //terrible way of doing this but so be it.
     $(".css-demo").click(function(){
         if ($(this).hasClass("ids")) {
             if ($(this).hasClass("on")){
