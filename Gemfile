@@ -8,12 +8,12 @@ gem 'sinatra-activerecord'
 gem 'nokogiri'
 gem 'cloudinary'
 gem 'data_mapper'
-
+gem 'htmlentities', '~> 4.3.4'
 gem 'json'
 gem 'mime-types'
 
 gem 'dotenv'
-gem 'simple-calendar', '~> 1.1.0'
+
 group :development do
   gem 'sqlite3'
 end

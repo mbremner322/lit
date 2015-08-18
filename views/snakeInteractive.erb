@@ -12,10 +12,13 @@
   <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
 <!--  <link rel="stylesheet" href="nav-bar.css"> -->
   <script type="text/javascript" src='google-code-prettify/prettify.js'></script>
-  <script src="http://thecodeplayer.com/uploads/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="/pop.js"></script>
-  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='/snake.css'>
+<script src='/snake.js'></script> 
   <style>
     pre.prettyprint{
         width: auto;
@@ -50,141 +53,108 @@
       <h1 class="o-header__title">ヘビゲームを作ろう</h1>
     </div>
   </header><!-- /o-header -->
-    <style>
-        .left,.right {
-            width: 47%;
-            float:left;
-            height: 330px;
-            margin-right: 1%;
-            margin-left: 1%;
-            border: 2px solid #60dcdb;
-        }
-        .left {
-            border-color: #ae51bc;
-            background-color: black;
-        }
-        .right {
-            border-color: #60dcdb;
-        }
-        #editor-ace {
-            width: 98%;
-            margin-right:1%;
-            margin-left:1%;
-            height: 330px;
-        }
-        #evaluateBut {
-            text-decoration: none;
-            height: 30px;
-            width: 98%;
-            margin-right: 1%;
-            margin-left: 1%;
-            font-size: 14px;
-            background-color:#66ff99;
-            color: #9966ff;
-            border: solid 2px;
-        }
-        #evaluateBut:hover {
-            color: #66ff99;
-            background-color:#9966ff;
-        }
-        #evaluateBut:active {
-            background-color:#E050B9;
-        }
-        #note {
-            width: 76%;
-            background-color: white;
-            border-bottom: #D97486 solid 2px;
-            float: left;
-        }
-        #exp, #nextBut, #backBut {
-            text-align: center;
-            font-size: 14px;
-            color: white; 
-            width: 8%;
-            border-bottom: #D97486 solid 2px;
-            float: left;
-        }
-        #exp {
-            background-color: #E2683C;
-        }
-        #nextBut {
-            background-color: #AE51BC;
-        }
-        #backBut {
-            background-color: #AE51BC;
-        }
-        
-        #code {
-            clear: left;
-            overflow: scroll;
-        }
-        #code ol {
-            margin: 0px;
-            overflow: scroll;
-            border: 0px;
-            padding: 0px;
-            padding-left: 3px;
-        }
-        pre.prettyprint{
-            width: auto;
-            overflow-x:scroll;
-            overflow-y:hidden;
-            line-height: 1em;
-            font-size:12px;
-            white-space:pre;
-            display: block;
-            word-wrap: normal;
-            padding: 0px;
-            border: 0px;
-            overflow: auto;
-            max-height: 600px;
-       }
-        .comment {
-            display: none;
-        }        
-        .tut {
-            height: 15px;
-        }
-        .tut:hover {
-            text-decoration: underline;
-        }
-        
-    </style>
-    <script>
-        $(document).ready(function() {
-            $('.tut').click(function() {
-                var text = this.children[1].innerHTML;
-                $('#note')[0].innerHTML = text;
-            });
-        });
-
-
-    </script>
     <div class='left'>
         <!--this is the section that displays the comments-->
         <div id='note'>分からないコードをクリックすると解説が出るよ！</div> 
         <!-- the actual code that the students can follow / and these are also the slides-->
-        <div id='backBut'>前へ</div>
+        <div id='backBut'><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></div>
         <div id='exp'>解説</div>
-        <div id='nextBut'>次へ</div>
-        <div id='code'>
-            <div class='tut'><pre class='prettyprint' class='code'>$(document).ready(function() { </pre><div class='comment'>jQuery の全てDocument がロードされてから</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;$('body').append('&lt;canvas id="jsSnake">');</pre><div class='comment'>htmlのbodyにcanvasエレメントを追加</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;var $canvas = $('#jsSnake');</pre><div class='comment'>jQueryの変数$canvasを作る。</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;$canvas.attr('width',100);</pre><div class='comment'>canvas の横の長さを１００に設定</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;$canvas.attr('height',100);</pre><div class='comment'>canvas の縦の長さを１００に設定</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;var canvas = $canvas[0];</pre><div class='comment'>jQueryでcanvasのDOMを選択</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;var ctx = canvas.getContext('2d');</pre><div class='comment'>canvasを２dに設定</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;ctx.fillStyle='#FF03AA';</pre><div class='comment'>変数ctxの色を#FF03AAに設定</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>&nbsp;ctx.fillRect(20,20,80,80);</pre><div class='comment'>四角を描く（x, y, 長さ、高さ）</div></div>
-            <div class='tut'><pre class='prettyprint' class='code'>});</pre><div class='comment'>&nbsp;</div></div>
-        </div> 
+        <div id='actCode'><span class="glyphicon glyphicon-pencil" aria-hidden="true"></div>
+        <div id='nextBut'><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></div>
+        </br>
+        <div id='start'></div>
+        <div class='page now'>
+            <div class='codetext'>
+                <%@codeAndComments1.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+                最初にcanvasエレメントを作って何か描いてみよう！このステップでは最初にcanvasエレメントを作り、長さと高さを設定し、ピンクの四角形を書いてみるよ！このステップで大切な事は、canvas　自体にはdrawing methodを呼んでなくて、canvasのdrawing context にdrawing methodを呼んでる事だよ！.getContext('2d'）を呼ぶ事によってcanvas にcontext　を作ります。
+            </div>
+        </div>
 
 
+        <div class='page hide'>
+            <div class='codetext'>
+                <%@codeAndComments2.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+                <p>綺麗な四角を描けたのは、嬉しいけど何も動かないのじゃ楽しくないから次はgame loopを使って四角を動かしてみよう!</p><p>
+gameloopとは一定の時間ごとに呼ばれる関数で物を動かしたりするのに使うよ。まず最初にJS_SNAKEというグローバル変数を作ります。</p><p>
+これからこの変数にいろいろ入れていくよ！次にgameというobject をつくるよ。このobject はゲーム関係の関数や変数を中に入れます。game の中にあるinitという関数は一番最初に呼ばれる関数で前のページで作った四角を作ります。</p><p>
+init のなかで呼ぶgameLoopという関数は四角のポジションを動かし、canvasを一回消してから新しい四角を新しいポジションに書きます。setTimeoutというbuild-in関数{setTimeout(呼ぶ関数、待つ時間)}を使ってgameLoop をframeLengthミリ秒ごとに呼びます。</p>
+            </div>
+        </div>
 
+        <div class='page hide'>
+            <div class='codetext'>
+                <%@codeAndComments3.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+   なんとなくアニメーションの仕組みはわかったかな？なら蛇を描いてみよう！私たちがつくる蛇は小さな四角のブロックで作ります。蛇を動かすためにはフレームごとに頭にブロックを一つ加え、後ろからブロックを一つ取ります。snakeのobjectには二つメソッド, advance と draw が入ります。advanceはsnakeを右に動かし、draw は　snake をcanvasの中に描き込みます。advanceはsnakeの今の頭をコピーして、それを一つ横に動かします。そしてそれを蛇の配列のまえに付けたし、一番後ろに入ってる物をPOPします。draw は　drawsection を使ってどんどん四角を書いていきます。
+            </div>
+        </div>
+        <div class='page hide'>
+            <div class='codetext'>
+                <%@codeAndComments4.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+                イェーイ！蛇が動いた。でも動く方向を変えられなかったらつまらないからキーボードの
+                イベントをバインドしよう。新しくgame.init() というevent を管理する関数を作ろう。
+                矢印のkeyが押されたらnewDirection をその方向に設定します。setDirectionという関数
+                は押された方向が可能かをチェックします。e.g.右に進んでいる時に左に戻るのはなし、等。
+            </div>
+        </div>
+        <div class='page hide'>
+            <div class='codetext'>
+                <%@codeAndComments5.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+                次は蛇の餌を書き入れよう！canvas に丸を作るには最初にbeginPath() を呼びます。そしてarc(x,y,startingAngle, finishingAngle, true)で丸を書きます。x,yは中心のxy地点です。
+            </div>
+        </div>
+        <div class='page hide'>
+            <div class='codetext'>
+                <%@codeAndComments6.each do |t|%>
+                <% t = t.split('//') %>
+                <div class='tut'><pre class='prettyprint' class='code'><%=t[0]%></pre><div class='comment'><%=t[1]%></div></div>
+                <% end %>
+            </div>
+            <div class='exptext'>
+                最後に蛇とりんごがぶつかったらスコアがアップするという機能を付けて完成！
+            </div>
+        </div>
 
+        <div id='end'></div> 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class='right'>
         <iframe id='preview'></iframe>
     </div>

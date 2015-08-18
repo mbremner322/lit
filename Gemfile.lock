@@ -67,6 +67,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.0.2)
     fastercsv (1.5.5)
+    htmlentities (4.3.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -123,6 +124,7 @@ DEPENDENCIES
   cloudinary
   data_mapper
   dotenv
+  htmlentities (~> 4.3.4)
   json
   mime-types
   nokogiri
