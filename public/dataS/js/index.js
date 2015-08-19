@@ -1,3 +1,8 @@
+$(document).ready(function(){
+    $("#button").click(function(){
+        $('#commands').toggle("slide");
+    });
+});
 jQuery(document).ready(function($) {
     var id = 1;
         $('#terminal').terminal(function(command, term) {
@@ -106,14 +111,32 @@ jQuery(document).ready(function($) {
                         cell3.innerHTML = "23";
                     }
                     if (/rake db:create_migration NAME=add_/.test(command)){
-                        
-
+                        var commandex = command.split("NAME=add_")[1];
+                        var commandex = commandex.split('_');
+                        var field = commandex[0];
+                        var table = commandex[2];
+                        var tableD = $('#'+table+' table');
+                        tableD = tableD[0];
+                        var firstRow = tableD.rows[0];
+                        var x = firstRow.insertCell(-1);
+                        x.innerHTML = field;
                     }
-                    if (command.indexOf("create")>-1){
+                    if (command[0].toUpperCase() === command[0]){
                         var name = command.substring(0, command.indexOf("."));
                         name = name.toLowerCase().pluralize();//Student=>student=>students
-                        command = command.split('({');
-                        term.echo(name);
+                        var table = $("#"+name+" table");
+                        table = table[0];
+                        var row = table.insertRow(table.rows.length); 
+
+                        var fields = command.split("({")[1].split("})")[0].split(",");
+                        for (var i = 0; i < fields.length; i++){
+                            var field = fields[i];
+                            field = field.split(":");
+                            var data = field[1];
+                            row.insertCell(i).innerHTML = data;
+                        }
+                        row.insertCell(0).innerHTML = table.rows.length-2;
+                        
 
                     }
                 }, {
