@@ -21,6 +21,28 @@ CODE_AND_COMMENTS = [
 class SillyCatz < Sinatra::Base
     
     get '/' do
+        erb :home
+    end
+
+
+    get '/courseSelection' do
+        erb :selectCourse
+    end
+    
+    get '/webDesign' do
+        @arr = [0, 1, 2].shuffle
+        @qs = ['HTML','CSS','javascript']
+        @as = ['ものの配置','飾り付け','機能付']
+        @questions = Question.order(:rank)
+        @comments = Comment.order(:rank)
+        erb :sampleCourse
+    end
+
+    get '/webGame' do
+        erb :selectWebGame
+    end
+
+    get '/snakeGame' do
         running_dir = File.dirname(__FILE__)
         running_dir = Dir.pwd if (running_dir == '.')
         @codeAndComments1 = File.open(running_dir + '/public/jsCodeFiles/snake-1.js', 'r').readlines
@@ -51,23 +73,24 @@ class SillyCatz < Sinatra::Base
         @questions = Question.order(:rank)
         @comments = Comment.order(:rank)
         erb :snakeInteractive
-        #erb :home
     end
-
-
-    get '/courseSelection' do
-        erb :selectCourse
+    get '/dataS' do
+        erb :dataS
     end
     
-    get '/webDesign' do
-        @arr = [0, 1, 2].shuffle
-        @qs = ['HTML','CSS','javascript']
-        @as = ['ものの配置','飾り付け','機能付']
+    get '/tetrisGame' do
+        running_dir = File.dirname(__FILE__)
+        running_dir = Dir.pwd if (running_dir == '.')
+        @codeAndComments = File.open(running_dir + '/public/jsCodeFiles/tetris.html', 'r').readlines
+        @codeAndComments.each do |t|
+            t = t.gsub! '<','&lt;'
+        end        
         @questions = Question.order(:rank)
         @comments = Comment.order(:rank)
-        erb :sampleCourse
+        erb :tetrisInteractive
+        
     end
-    
+
     get '/dnd-grade' do
         @result = params[:correctness].split(',')
         @result.collect! { |each|

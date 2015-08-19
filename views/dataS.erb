@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>terminal demo</title>
+        <script src="/dataS/js/jquery-1.7.1.min.js"></script>
+        <script src="/dataS/js/jquery.mousewheel-min.js"></script>
+        <script src="/dataS/js/jquery.terminal-min.js"></script>
+        <script src="/dataS/js/inflection.js"></script>
+        <script src="/dataS/js/index.js"></script>
+        <link href="/dataS/css/jquery.terminal.css" rel="stylesheet"/>
+        <link href="/dataS/css/style.css" rel="stylesheet"/>
+  </head>
+    <body>
+        <div id="db">
+        </div>
+        <div id='commands'>
+            <h3>some useful commands are ...</h3>
+            <ul>
+                <li><h2>When you want to create a new table...</h2>
+                <p>rake db:create_migration NAME=create_'name_of_table_plural_form'</p></li>
+                <p>e.g. rake db:create_migration NAME=create_categories</p>
+                <li><h2>When you want to add another field to an existing table ...</h2>
+                <p>rake db:create_migration NAME=add_'field_name'_to_'table_name'</p>
+                <p>e.g. rake db:migrate_migration NAME=add_age_to_people</p>
+                <li><h2>When you want to add an element to a table...</h2>
+                <p>'name_of_table_singular_form'.create({'field_name': 'input', 'field_name': 'input'})</p>
+                <p>example:</p>
+                <p class='title'>students</p>
+                <table class='table'>
+                    <tr>
+                        <td>id</td>
+                        <td>name</td>
+                        <td>age</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>marie</td>
+                        <td>19</td>
+                    </tr>
+                </table>
+                <p>students.create({ name:'elena', age:'16'}) </p>
+            </ul>
+        </div>
+        <div id="terminal">
+        </div>
+    </body>
+
+
+
+</html>
